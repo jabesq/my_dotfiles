@@ -1,0 +1,60 @@
+[color]
+	ui = true
+	status = auto
+	branch = auto
+	diff = true
+
+[user]
+	name =
+	email =
+	useconfigonly = true
+
+[alias]
+	lol = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+    lola = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --all
+	st = status
+	df = diff
+	co = checkout
+	ci = commit -s
+	br = branch
+	rb = rebase
+	amend = commit --amend
+	cleanws = rebase --whitespace=fix
+	ls = show --pretty=oneline --abbrev-commit --name-status
+	showtool = "!sh -c 'if [ -z $1 ]; then REVISION=HEAD; else REVISION=$1; fi; git difftool $REVISION~ $REVISION' -"
+	gblame = gui blame
+	hard = reset --hard
+
+[color "diff"]
+	whitespace = red reverse
+	meta = yellow bold
+	frag = magenta bold
+	old = red
+	new = green bold
+
+[color "status"]
+	added = yellow
+	changed = green
+	untracked = cyan
+
+[core]
+	autocrlf = input
+	whitespace = trailing-space,space-before-tab,fix,-indent-with-non-tab,cr-at-eol
+	editor = vim
+	safecrlf = false
+	pager = sed 's/\t/.       /g' | less -R -F -X
+
+[filter "trimWhitespace"]
+	clean = git-stripspace
+
+[rebase]
+	autostash = true
+[push]
+	default = simple
+
+[pager]
+	log = diff-highlight | less
+	show = diff-highlight | less
+	diff = diff-highlight | less
+[interactive]
+	diffFilter = diff-highlight
