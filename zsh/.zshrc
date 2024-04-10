@@ -121,7 +121,13 @@ eval "$(pyenv init -)"
 eval "$(zoxide init zsh)"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-alias ll='ls -lFh'
-alias la='ls -A'
-alias l='ls -CF'
-alias rebash='exec -l zsh'
+alias -- rebash='exec -l zsh'
+alias -- ccat='colorize_cat'
+alias -- cat='ccat'
+alias -- cless='colorize_less'
+alias -- less='cless'
+alias -- dirs='dirs -v'
+alias -- l='ls -lah'
+alias -- ll='ls -lh'
+alias -- ls='ls -G'
+alias -- grbx='git rbx'
